@@ -197,6 +197,8 @@ body {
 .chart-container {
   grid-column: 1 / -1;
   height: 400px;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .chart-header {
@@ -1182,7 +1184,7 @@ body {
 
   .fg-chart {
     order: 2;
-    margin: 0 -0.5rem;
+    overflow: hidden;
   }
 
   .fg-gauge {
@@ -1314,8 +1316,8 @@ body {
 
   /* Chart */
   .chart-container {
-    height: 250px;
-    margin: 0 -0.5rem;
+    height: 280px;
+    overflow: hidden;
   }
 
   /* Notification */

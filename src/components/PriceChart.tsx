@@ -56,43 +56,46 @@ export function PriceChart({ coinId, coinName }: PriceChartProps) {
       {error && <div className="error">{error}</div>}
 
       {chartData && !loading && (
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={chartData}>
-            <XAxis
-              dataKey="date"
-              stroke="#8b949e"
-              tick={{ fill: '#8b949e', fontSize: isMobile ? 10 : 12 }}
-              tickLine={{ stroke: '#8b949e' }}
-              interval={isMobile ? 'preserveStartEnd' : 'equidistantPreserveStart'}
-              angle={isMobile ? -45 : 0}
-              textAnchor={isMobile ? 'end' : 'middle'}
-              height={isMobile ? 60 : 30}
-            />
-            <YAxis
-              stroke="#8b949e"
-              tick={{ fill: '#8b949e' }}
-              tickLine={{ stroke: '#8b949e' }}
-              tickFormatter={(value) => `$${value.toLocaleString()}`}
-              domain={['auto', 'auto']}
-            />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: '#161b22',
-                border: '1px solid #30363d',
-                borderRadius: '6px',
-              }}
-              labelStyle={{ color: '#f0f6fc' }}
-              formatter={(value: number) => [`$${value.toLocaleString()}`, 'Price']}
-            />
-            <Line
-              type="monotone"
-              dataKey="price"
-              stroke="#58a6ff"
-              strokeWidth={2}
-              dot={false}
-            />
-          </LineChart>
-        </ResponsiveContainer>
+        <div style={{ width: '100%', height: isMobile ? 200 : 300, overflow: 'hidden' }}>
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={chartData} margin={{ top: 5, right: 5, left: isMobile ? -10 : 0, bottom: 5 }}>
+              <XAxis
+                dataKey="date"
+                stroke="#8b949e"
+                tick={{ fill: '#8b949e', fontSize: isMobile ? 10 : 12 }}
+                tickLine={{ stroke: '#8b949e' }}
+                interval={isMobile ? 'preserveStartEnd' : 'equidistantPreserveStart'}
+                angle={isMobile ? -45 : 0}
+                textAnchor={isMobile ? 'end' : 'middle'}
+                height={isMobile ? 50 : 30}
+              />
+              <YAxis
+                stroke="#8b949e"
+                tick={{ fill: '#8b949e', fontSize: isMobile ? 10 : 12 }}
+                tickLine={{ stroke: '#8b949e' }}
+                tickFormatter={(value) => isMobile ? `$${(value/1000).toFixed(0)}k` : `$${value.toLocaleString()}`}
+                domain={['auto', 'auto']}
+                width={isMobile ? 45 : 60}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: '#161b22',
+                  border: '1px solid #30363d',
+                  borderRadius: '6px',
+                }}
+                labelStyle={{ color: '#f0f6fc' }}
+                formatter={(value: number) => [`$${value.toLocaleString()}`, 'Price']}
+              />
+              <Line
+                type="monotone"
+                dataKey="price"
+                stroke="#58a6ff"
+                strokeWidth={2}
+                dot={false}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
       )}
     </div>
   );
