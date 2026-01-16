@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import type { TimeRange } from '../types';
 import { usePriceHistory } from '../hooks';
@@ -15,14 +16,22 @@ const TIME_RANGES: { value: TimeRange; label: string }[] = [
   { value: '365', label: '1Y' },
 ];
 
-import { useState } from 'react';
-
 export function PriceChart({ coinId, coinName }: PriceChartProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>('7');
   const { history, loading, error } = usePriceHistory(coinId, timeRange);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 480);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 480);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const chartData = history?.prices.map(([timestamp, price]) => ({
-    date: new Date(timestamp).toLocaleDateString(),
+    date: new Date(timestamp).toLocaleDateString(undefined, {
+      month: 'short',
+      day: 'numeric',
+    }),
     price,
   }));
 
@@ -52,8 +61,12 @@ export function PriceChart({ coinId, coinName }: PriceChartProps) {
             <XAxis
               dataKey="date"
               stroke="#8b949e"
-              tick={{ fill: '#8b949e' }}
+              tick={{ fill: '#8b949e', fontSize: isMobile ? 10 : 12 }}
               tickLine={{ stroke: '#8b949e' }}
+              interval={isMobile ? 'preserveStartEnd' : 'equidistantPreserveStart'}
+              angle={isMobile ? -45 : 0}
+              textAnchor={isMobile ? 'end' : 'middle'}
+              height={isMobile ? 60 : 30}
             />
             <YAxis
               stroke="#8b949e"

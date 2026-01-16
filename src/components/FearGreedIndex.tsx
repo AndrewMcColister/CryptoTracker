@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
 import type { FearGreedHistory } from '../types';
 
@@ -16,6 +17,13 @@ function getColor(value: number): string {
 }
 
 export function FearGreedIndex({ data, loading, error }: FearGreedIndexProps) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 480);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 480);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   if (loading) {
     return (
       <div className="card fear-greed">
@@ -80,9 +88,10 @@ export function FearGreedIndex({ data, loading, error }: FearGreedIndexProps) {
               <XAxis
                 dataKey="date"
                 stroke="#8b949e"
-                tick={{ fill: '#8b949e', fontSize: 10 }}
+                tick={{ fill: '#8b949e', fontSize: isMobile ? 9 : 10 }}
                 tickLine={false}
                 axisLine={false}
+                interval={isMobile ? 'preserveStartEnd' : 'equidistantPreserveStart'}
               />
               <YAxis
                 domain={[0, 100]}

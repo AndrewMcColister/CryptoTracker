@@ -1118,7 +1118,34 @@ body {
   }
 
   .stat-value {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* Bid/Ask - stack vertically on mobile */
+  .bid-ask-values {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .bid, .ask {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: var(--bg-primary);
+    border-radius: 4px;
+  }
+
+  .ask {
+    text-align: left;
+  }
+
+  .spread-indicator {
+    display: none;
+  }
+
+  .range-labels {
+    font-size: 0.75rem;
   }
 
   /* Global stats */
@@ -1128,7 +1155,19 @@ body {
   }
 
   .gs-value {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+  }
+
+  .gs-label {
+    font-size: 0.65rem;
+  }
+
+  .gs-change {
+    font-size: 0.75rem;
+  }
+
+  .gs-footer {
+    font-size: 0.7rem;
   }
 
   /* Fear & Greed */
@@ -1143,6 +1182,7 @@ body {
 
   .fg-chart {
     order: 2;
+    margin: 0 -0.5rem;
   }
 
   .fg-gauge {
@@ -1189,15 +1229,15 @@ body {
 
   /* Halving countdown */
   .halving-countdown {
-    gap: 0.75rem;
+    gap: 1.25rem;
   }
 
   .countdown-value {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   .countdown-label {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
   }
 
   .halving-details {
@@ -1227,6 +1267,10 @@ body {
     font-size: 0.8rem;
   }
 
+  .trending-mcap {
+    font-size: 0.65rem;
+  }
+
   /* Alerts */
   .alert-form {
     flex-direction: column;
@@ -1245,34 +1289,33 @@ body {
     font-size: 0.9rem;
   }
 
-  /* News */
+  /* News - hide images on mobile for cleaner look */
   .news-list {
-    max-height: 300px;
+    max-height: 350px;
   }
 
   .news-item {
-    padding: 0.625rem;
-    gap: 0.75rem;
+    padding: 0.75rem;
   }
 
   .news-image {
-    width: 50px;
-    height: 38px;
+    display: none;
   }
 
   .news-title {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     -webkit-line-clamp: 2;
   }
 
   .news-meta {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     gap: 0.5rem;
   }
 
   /* Chart */
   .chart-container {
     height: 250px;
+    margin: 0 -0.5rem;
   }
 
   /* Notification */
