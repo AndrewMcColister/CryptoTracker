@@ -286,6 +286,8 @@ body {
   text-decoration: none;
   color: inherit;
   transition: background-color 0.2s;
+  overflow: visible;
+  height: auto;
 }
 
 .news-item:hover {
@@ -1372,9 +1374,13 @@ body {
 @media (hover: none) and (pointer: coarse) {
   .price-item,
   .trending-item,
-  .news-item,
   .alert-item {
     min-height: 48px;
+  }
+
+  .news-item {
+    min-height: auto;
+    padding: 0.875rem;
   }
 
   .alert-form select,
