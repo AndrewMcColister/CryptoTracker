@@ -15,14 +15,6 @@ function getColor(value: number): string {
   return '#16c784'; // Extreme Greed - green
 }
 
-function getGradientId(value: number): string {
-  if (value <= 25) return 'extremeFear';
-  if (value <= 45) return 'fear';
-  if (value <= 55) return 'neutral';
-  if (value <= 75) return 'greed';
-  return 'extremeGreed';
-}
-
 export function FearGreedIndex({ data, loading, error }: FearGreedIndexProps) {
   if (loading) {
     return (
@@ -108,8 +100,8 @@ export function FearGreedIndex({ data, loading, error }: FearGreedIndexProps) {
                   fontSize: '12px',
                 }}
                 labelStyle={{ color: '#f0f6fc' }}
-                formatter={(value: number, _name: string, props: { payload: { classification: string } }) => [
-                  `${value} - ${props.payload.classification}`,
+                formatter={(value: number, _name: string, props: { payload?: { classification: string } }) => [
+                  `${value}${props.payload ? ` - ${props.payload.classification}` : ''}`,
                   'Index',
                 ]}
               />
