@@ -948,3 +948,400 @@ body {
   font-size: 0.8rem;
   color: var(--text-secondary);
 }
+
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
+
+/* Tablets and below */
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .header p {
+    font-size: 0.875rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+  }
+
+  /* Chart adjustments */
+  .chart-container {
+    height: 300px;
+  }
+
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .chart-controls {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  .chart-controls button {
+    flex-shrink: 0;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  /* Halving countdown */
+  .halving-countdown {
+    gap: 1rem;
+  }
+
+  .countdown-value {
+    font-size: 2rem;
+  }
+
+  /* News adjustments */
+  .news-list {
+    max-height: 350px;
+  }
+
+  .news-image {
+    width: 60px;
+    height: 45px;
+  }
+
+  .news-title {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .app {
+    padding: 0.75rem;
+  }
+
+  .header {
+    margin-bottom: 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .header p {
+    font-size: 0.8rem;
+  }
+
+  .dashboard {
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 0.875rem;
+    border-radius: 6px;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Refresh controls - stack vertically */
+  .refresh-controls {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .refresh-status {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .refresh-actions {
+    justify-content: center;
+  }
+
+  .refresh-select,
+  .refresh-button {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Price list */
+  .price-item {
+    padding: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .coin-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .coin-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .coin-name {
+    font-size: 0.9rem;
+  }
+
+  .coin-symbol {
+    font-size: 0.75rem;
+  }
+
+  .price-info {
+    flex-shrink: 0;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+
+  .change {
+    font-size: 0.8rem;
+  }
+
+  /* Market stats */
+  .stats-grid {
+    gap: 0.75rem;
+  }
+
+  .stat-value {
+    font-size: 1rem;
+  }
+
+  /* Global stats */
+  .gs-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .gs-value {
+    font-size: 0.95rem;
+  }
+
+  /* Fear & Greed */
+  .fg-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .fg-gauge-container {
+    order: 1;
+  }
+
+  .fg-chart {
+    order: 2;
+  }
+
+  .fg-gauge {
+    width: 140px;
+    height: 70px;
+  }
+
+  .fg-gauge-bg {
+    width: 140px;
+    height: 140px;
+  }
+
+  .fg-gauge-needle {
+    height: 50px;
+  }
+
+  .fg-value {
+    font-size: 1.5rem;
+  }
+
+  /* Gas tracker */
+  .gas-grid {
+    gap: 0.5rem;
+  }
+
+  .gas-item {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .gas-icon {
+    font-size: 1.25rem;
+  }
+
+  .gas-value {
+    font-size: 1.1rem;
+  }
+
+  .gas-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+  }
+
+  /* Halving countdown */
+  .halving-countdown {
+    gap: 0.75rem;
+  }
+
+  .countdown-value {
+    font-size: 1.5rem;
+  }
+
+  .countdown-label {
+    font-size: 0.65rem;
+  }
+
+  .halving-details {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .detail-value {
+    font-size: 0.85rem;
+  }
+
+  /* Trending */
+  .trending-item {
+    padding: 0.5rem 0.4rem;
+    gap: 0.5rem;
+  }
+
+  .trending-name {
+    font-size: 0.85rem;
+  }
+
+  .trending-stats {
+    flex-shrink: 0;
+  }
+
+  .trending-change {
+    font-size: 0.8rem;
+  }
+
+  /* Alerts */
+  .alert-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .alert-form select,
+  .alert-form input,
+  .alert-form button {
+    width: 100%;
+    padding: 0.875rem 1rem;
+  }
+
+  .alert-item {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  /* News */
+  .news-list {
+    max-height: 300px;
+  }
+
+  .news-item {
+    padding: 0.625rem;
+    gap: 0.75rem;
+  }
+
+  .news-image {
+    width: 50px;
+    height: 38px;
+  }
+
+  .news-title {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .news-meta {
+    font-size: 0.7rem;
+    gap: 0.5rem;
+  }
+
+  /* Chart */
+  .chart-container {
+    height: 250px;
+  }
+
+  /* Notification */
+  .notification {
+    left: 1rem;
+    right: 1rem;
+    top: auto;
+    bottom: 1rem;
+    text-align: center;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .app {
+    padding: 0.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.25rem;
+  }
+
+  .countdown-value {
+    font-size: 1.25rem;
+  }
+
+  .gs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .halving-details {
+    grid-template-columns: 1fr;
+  }
+
+  .gas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gas-item {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+  }
+
+  .gas-item > * {
+    margin-bottom: 0;
+  }
+}
+
+/* Touch-friendly enhancements */
+@media (hover: none) and (pointer: coarse) {
+  .price-item,
+  .trending-item,
+  .news-item,
+  .alert-item {
+    min-height: 48px;
+  }
+
+  .alert-form select,
+  .alert-form input,
+  .alert-form button,
+  .refresh-select,
+  .refresh-button,
+  .chart-controls button {
+    min-height: 44px;
+  }
+
+  .alert-delete {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+}
